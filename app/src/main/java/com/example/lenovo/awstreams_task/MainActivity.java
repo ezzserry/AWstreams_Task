@@ -44,15 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
         loading = new ProgressDialog(this);
-        loading.setCancelable(true);
+        loading.setCancelable(false);
         loading.setMessage("Please Wait");
         loading.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        cd = new ConnectionDetector(getApplicationContext());
-        isInternetPresent = cd.isConnectingToInternet();
 
 
         etSearch = (EditText) findViewById(R.id.search);
@@ -61,8 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 // If the event is a key-down event on the "enter" button
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    // Perform action on key press
-                    // check for Internet status
+                    cd = new ConnectionDetector(getApplicationContext());
+                    isInternetPresent = cd.isConnectingToInternet();
+
                     if (isInternetPresent) {
 
                         if (!etSearch.getText().toString().isEmpty()) {
