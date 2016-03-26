@@ -33,7 +33,6 @@
                 android:layout_toRightOf="@+id/thumbnail"
                 android:maxLines="3"
                 android:padding="8dp"
-                android:text="Title"
                 android:textColor="#222"
                 android:textSize="20sp" />
 
