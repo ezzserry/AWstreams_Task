@@ -38,17 +38,12 @@ public class VideosRecyclerAdapter extends RecyclerView.Adapter<VideosRecyclerAd
     @Override
     public void onBindViewHolder(VideosRecyclerAdapter.CustomViewHolder holder, int position) {
         VideoItem videoItem = videosList.get(position);
-
-
-        //check not null
-
-        //Setting text view title
-        holder.textView.setText(videoItem.getTitle());
-//        Picasso.with(mContext).load(videoItem.getThumbnail())
-//                .into(holder.imageView);
-        Glide.with(mContext)
-                .load(videoItem.getThumbnail())
-                .into(holder.imageView);
+        if (videoItem != null) {
+            holder.textView.setText(videoItem.getTitle());
+            Glide.with(mContext)
+                    .load(videoItem.getThumbnail())
+                    .into(holder.imageView);
+        }
     }
 
     @Override

@@ -31,9 +31,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressDialog loading = null;
     private ArrayList<VideoItem> videoItemArrayList;
 
-    // flag for Internet connection status
     Boolean isInternetPresent = false;
-    // Connection detector class
     ConnectionDetector cd;
 
     @Override
@@ -75,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                             Snackbar.make(recyclerView, "enter your keyword ", Snackbar.LENGTH_LONG)
                                     .setAction("Action", null).show();
                     } else
-                        Snackbar.make(recyclerView, "No internet con ", Snackbar.LENGTH_LONG)
+                        Snackbar.make(recyclerView, "No internet connection ", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                 }
                 return false;
